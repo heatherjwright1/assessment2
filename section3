@@ -1,0 +1,25 @@
+## Question/section 3
+
+def classes(students):
+pass
+
+
+## create function that sets max number of students of 30 in each class, and shows the amount of new classes needed based on number of students
+def classes(students):
+num = students // 30
+max_num_of_students = if num % 30 != 0
+new_classes = num // max_num_of_students
+
+
+## add a condition that evenly distributes the students and add a condition that prioritises larger classes
+students_two = students % num classes
+allocation = [new_classes + 1] * students_two + [new_classes] * (num - students_two)
+
+
+# create a dictionary for the display of the allocation of students
+
+
+allocation_classes = {'Class {}': allocation[i] for i in range(num)}
+
+
+print('Proposed allocation: Class{}.format(num)')
