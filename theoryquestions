@@ -1,0 +1,155 @@
+1.1    What does SDLC stand for?
+
+Software Development Cycle
+1 mark
+
+
+   1.2   What exception is thrown when you divide a number by 0?
+
+ZeroDivisionError
+1 mark
+
+
+   1.3   What is the git command that moves code from the local repository
+            to the remote repository? 
+
+Git push
+1 mark
+
+
+   1.4   What does NULL represent in a database? 
+
+There is no data value within the database/ a field with no value.
+
+
+   1 mark
+
+
+
+
+   1.5   Name 2 responsibilities of the Scrum Master 
+
+Arrange and facilitate daily standups (dev team will talk through what they’re working on, what went well/wrong yesterday and any suggestions for improving the project)
+
+Act as a middle man between business development and developers. Relay business objectives to the dev team to consider when creating sprints, and  helping to create sprints.
+2 marks
+
+
+   1.6   Name 2 debugging methods, and when you would use them.
+
+Exception handling 
+
+When you can pre-empt or predict that something may go wrong in your code, you can use exceptions (either in-built python ones or create your own exception) that will give clues to anyone reading the code as to what has gone wrong. For example, trying to use a key that does not exist within a dictionary, or a user trying to input a string instead of an integer. This will stop the execution of the program and give a chance to fix it, you can also add an else statement which will tell you to run the code as normal if no exception is raised. 
+
+Assert checks
+
+You can use ‘assertFalse’ or ‘assertTrue’ when debugging/writing tests and this will execute the code if the program is true or ‘working’. If the assert is false it will stop the program from running and return an error message.
+
+
+  4 marks
+
+
+   1.7   Looking at the following code, describe a case where this function
+           would throw an error when called. Describe this case and talk about
+           what exception handling you’ll need. 
+
+def can_pay(price, cash_given):
+   if cash_given >= price:
+       return True
+   else:
+       return False
+
+
+This would return a type error if the price or cash_given was assigned to a string. 
+
+You could do for example: 
+
+Try: 
+can_pay(price, cash_given):
+
+Except TypeError as TE:
+print(‘This must be a number.)
+print(TE)
+
+Assigning the TypeError to the variable TE will print more information about the error. 
+
+This will pick up a specific exception error, but you could also add a generic one to pick up any other type of error, for example: 
+
+except Exception:
+    print('We hit an exception that is not a TypeError!')
+
+
+  5 marks
+
+
+   1.8    What is git branching? Explain how it is used in Git.
+
+Creating a git branch allows you to work on a specific block of code, without it affecting the main branch. Git checkout -b is the command to create (and move to) a new branch.
+
+Once you have worked on your piece of code, you can then merge this back into the main branch and it will update the code you have worked on. 
+
+This allows you to work on the code locally without breaking or harming the main code in the remote environment. 
+
+The remote environment allows everyone who is a collaborator to access the code and you might not want them to read your code as you are writing it as it may be wrong and you might make changes etc later down the line. 
+
+You should only merge your code once you are 100% happy with it. When you create a pull request, the owner of the project has the chance to review your branch and leave comments before merging it into the main branch.
+  6 marks
+
+
+
+
+   1.9  Design a restaurant ordering system. 
+           You do not need to write code, but describe a high-level approach: 
+Draw a list of key requirements
+What are your main considerations and problems?
+What components or tools would you potentially use? 
+
+I’ve written my restaurant ordering system in the context of a delivery service such as just eat or deliveroo.
+
+Key requirements: 
+-Maximum number of orders set
+-API must speak to the database to see what current stock levels are/what is available to order
+-allergy information on all products
+-It must pull the price, name, ingredients of each product
+-Allow user to modify products eg no cheese
+-display modifications in order receipt to restaurant
+-Any promotions/discounts on any product 
+-Must ensure the user has logged in and has given an update address, contact details, payment details
+-The user must be able to add several products into a ‘basket’ before placing order
+-The basket must give a total cost to the user at all stages
+-The user must be given a text box to add any additional notes and be prompted to add allergy information or delivery instructions
+-The user must be able to add/delete products from the basket at all stages before order is placed
+-User can add a discount code/gift card code
+-restaurant can promote additional products for upsell and user must be able to add to basket 
+-user interface needs to replicate fiscal menu (starters, mains, desserts, drinks) with drop down options for user ease
+-Upon placing the order, the user must be asked to check they have all the correct details for the order
+-Once order is placed, the user must be given instructions as what to do if there is an issue/they want to cancel/amend the order
+-live tracking order updates
+-map showing where order is once driver sets off
+
+Considerations/Problems:
+-If restaurant has not updated stock levels
+-if restaurant has closed early/unexpectedly and the user has been allowed to place an order
+-User gives invalid address
+-User’s bank has refunded/payment bounced back
+-Order takes longer than usual or expected delivery time changes
+-User under 18 
+-card authentication
+-data protection (user details only sent to restaurant they’ve ordered from)
+-any user input must be in correct format eg. post code must be integers and strings
+-ensure user is located within set radius eg. 3 miles
+
+
+Components/tools: 
+-SQL connector 
+-A post method would be used for retrieving data from the api
+-Date/time objects for time handling
+-unit testing to test each function within program
+-Lists, dictionaries and sets can be used to manipulate/store data retrieved from database
+-Use exception handling to ensure all data inputted from the user is valid eg. telephone number is integers
+-Use regular expressions to ensure the postcode is in the correct format and must contain strings and integers
+-Use a location library such as ip2geotools to ensure the user is within distance of the restaurant. (Source: https://www.kdnuggets.com/2023/01/track-location-ip-address-python.html)
+-Use Stripe as a payment gateway for authentication etc.
+  10 marks
+
+
